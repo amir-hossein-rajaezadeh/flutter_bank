@@ -59,7 +59,7 @@ class MainPage extends StatelessWidget {
                           child: const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Hi Amir"),
+                              Text("Hi Ariba"),
                               Text("Wed, Fe,2024"),
                             ],
                           ),
@@ -81,7 +81,7 @@ class MainPage extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(left: 20, top: 20),
                         child: const Text(
-                          "Balanced",
+                          "Balance",
                           style: TextStyle(
                             fontSize: 18,
                           ),
@@ -90,7 +90,7 @@ class MainPage extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(left: 23),
                         child: const Text(
-                          "1,434.34",
+                          " \$1,434.34",
                           style: TextStyle(
                               fontSize: 36, fontWeight: FontWeight.w800),
                         ),

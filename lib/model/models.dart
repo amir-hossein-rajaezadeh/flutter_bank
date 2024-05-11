@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class AllModels {
   List<MenuItemModel> getMenuList() {
     final List<MenuItemModel> getMenuList = [
-      MenuItemModel("Top Up", Icons.home),
-      MenuItemModel("Transfer", Icons.home),
-      MenuItemModel("Pay", Icons.home),
-      MenuItemModel("Request", Icons.home),
-      MenuItemModel("HIstory", Icons.home),
+      MenuItemModel("Top Up", Icons.add),
+      MenuItemModel("Transfer", Icons.account_balance),
+      MenuItemModel("Pay", Icons.arrow_circle_up),
+      MenuItemModel("Request", Icons.arrow_circle_down),
+      MenuItemModel("HIstory", Icons.list_alt),
     ];
     return getMenuList;
   }
