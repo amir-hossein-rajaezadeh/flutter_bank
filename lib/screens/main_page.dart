@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/screens/cards_page.dart';
 import 'package:flutter_bank/screens/home_page.dart';
+import 'package:flutter_bank/screens/payment_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -50,12 +51,7 @@ class _MainPageState extends State<MainPage>
                     children: const <Widget>[
                       HomePage(),
                       CardsPage(),
-                      Center(
-                        child: Text(
-                          "Chart Screen",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                      ),
+                      PaymentPage(),
                       Center(
                         child: Text(
                           "Profile Screen",
@@ -70,7 +66,6 @@ class _MainPageState extends State<MainPage>
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 30),
                     child: TabBar(
-                      
                       enableFeedback: true,
                       tabs: myTabs,
                       controller: _tabController,
