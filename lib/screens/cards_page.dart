@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/utils/my_colors.dart';
+import 'package:go_router/go_router.dart';
 
 class CardsPage extends StatelessWidget {
   const CardsPage({super.key});
@@ -23,13 +24,15 @@ class CardsPage extends StatelessWidget {
             leading: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
-                  border: Border.all(color:MyColors.grey)),
+                  border: Border.all(color: MyColors.grey)),
               child: IconButton(
                 icon: const Icon(
                   Icons.password,
                   color: MyColors.darkPurple,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  context.goNamed("/paymentPage");
+                },
               ),
             ),
             title: const Text(
@@ -98,7 +101,7 @@ class CardsPage extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading:Container(
+            leading: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   border: Border.all(color: MyColors.grey)),
@@ -124,7 +127,7 @@ class CardsPage extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading:Container(
+            leading: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   border: Border.all(color: MyColors.grey)),
