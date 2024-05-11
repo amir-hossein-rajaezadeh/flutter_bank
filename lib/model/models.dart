@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class AllModels {
@@ -18,3 +19,26 @@ class MenuItemModel {
   final String title;
   MenuItemModel(this.title, this.icon);
 }
+
+class HistoryItem {
+  final String title;
+  final String subtitle;
+  final String trailing;
+  final String leading;
+
+  HistoryItem(
+    this.title,
+    this.subtitle,
+    this.trailing,
+    this.leading,
+  );
+}
+
+final historyItems = [
+  HistoryItem('Ralph Edwards', 'Sent  . Feb 09', '\$50.00', 'Sent'),
+  HistoryItem('Ralph Edwards', 'Sent Feb 09', '\$50.00', 'Sent'),
+  HistoryItem('Ralph Edwards', 'Sent Feb 09', '\$50.00', 'Sent'),
+  HistoryItem('Ralph Edwards', 'Sent Feb 09', '\$50.00', 'Sent'),
+  HistoryItem('Ralph Edwards', 'Sent Feb 09', '\$50.00', 'Sent'),
+  HistoryItem('Ralph Edwards', 'Sent Feb 09', '\$50.00', 'Sent'),
+];

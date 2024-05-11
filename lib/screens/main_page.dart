@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
               ),
-              color: MyColors.pink,
+              color: MyColors.lightPurple,
             ),
             height: 285.h,
             width: double.infinity,
@@ -90,9 +90,11 @@ class MainPage extends StatelessWidget {
                       Container(
                         margin: const EdgeInsets.only(left: 23),
                         child: const Text(
-                          " \$1,434.34",
+                          "\$1,434.34",
                           style: TextStyle(
-                              fontSize: 36, fontWeight: FontWeight.w800),
+                            fontSize: 36,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       )
                     ],
@@ -149,13 +151,99 @@ class MainPage extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 180,
+                height: 100.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: MyColors.pink),
+                    color: MyColors.lightPurple),
                 margin: const EdgeInsets.only(top: 32, right: 24, left: 24),
                 child: Container(
-                  child: const Row(),
+                  alignment: Alignment.topCenter,
+                  margin: const EdgeInsets.only(right: 15, left: 10, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 85,
+                            height: 72,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/images/invitation.png",
+                                ),
+                                Positioned(
+                                  left: 0,
+                                  bottom: 6,
+                                  child: Image.asset("assets/images/star.png"),
+                                ),
+                                Positioned(
+                                  right: 3,
+                                  top: 0,
+                                  child: Image.asset("assets/images/star.png"),
+                                )
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Reveal",
+                                style: TextStyle(
+                                    color: MyColors.darkPurple,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              Text.rich(
+                                TextSpan(
+                                  text: 'Invite your firends',
+                                  style: TextStyle(
+                                      color: MyColors.darkPurple,
+                                      fontSize: 12.sp),
+                                  children: <InlineSpan>[
+                                    TextSpan(
+                                      text:
+                                          'to join on \n ZenWallet and get \$15.00',
+                                      style: TextStyle(
+                                          fontSize: 12.sp,
+                                          color: MyColors.grey),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                        size: 20,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 20, left: 20, top: 37.h),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Recent Transations",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      "View Mode",
+                      style:
+                          TextStyle(fontSize: 18, color: MyColors.darkPurple),
+                    ),
+                  ],
                 ),
               )
             ],
