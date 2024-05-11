@@ -8,4 +8,5 @@ class MyColors {
   static const Color backgroundColor = Color(0xFF152452);
   static const Color white = Color(0xFFfafafa);
   static const Color mediumWhite = Color(0xFFe4e5f1);
+  static const Color black = Color.fromARGB(0, 0, 0, 0);
 }
