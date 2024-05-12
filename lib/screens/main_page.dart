@@ -49,7 +49,7 @@ class _MainPageState extends State<MainPage>
                   child: TabBarView(
                     controller: _tabController,
                     children: const <Widget>[
-                      HomePage(),
+                      CardsPage(),
                       CardsPage(),
                       PaymentPage(),
                       Center(
