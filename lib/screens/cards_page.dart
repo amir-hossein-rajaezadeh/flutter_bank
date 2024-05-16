@@ -3,9 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bank/utils/my_colors.dart';
 
-class CardsPage extends StatelessWidget {
+class CardsPage extends StatefulWidget {
   const CardsPage({super.key});
 
+  @override
+  State<CardsPage> createState() => _CardsPageState();
+}
+
+class _CardsPageState extends State<CardsPage> with TickerProviderStateMixin {
+  double heughtt = 200;
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(milliseconds: 500),
+    vsync: this,
+  );
+  late Animation<Offset> _offsetAnimation = Tween<Offset>(
+    begin: Offset.zero,
+    end: const Offset(1.2, 0.0),
+  ).animate(_controller);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,15 +39,59 @@ class CardsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(
-            height: 270,
+            height: 255,
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
-                _buildCardWidget(0),
-                Positioned(
-                  top: 70,
-                  child: _buildCardWidget(1),
+                SlideTransition(
+                  position: _offsetAnimation,
+                  child: GestureDetector(
+                    onTap: () {
+                      _controller.forward();
+                      _controller.addStatusListener((status) {
+                        if (status == AnimationStatus.completed) {
+                          print("ffgfg $_offsetAnimation");
+                          setState(
+                            () {
+                              _offsetAnimation = Tween<Offset>(
+                                begin: const Offset(1.2, 0),
+                                end: const Offset(0, 0.4),
+                              ).animate(_controller);
+                            },
+                          );
+                          _controller
+                            ..reset()
+                            ..forward();
+                          if (status == AnimationStatus.completed) {
+                          } else {
+                            _controller.stop();
+                          }
+                        }
+                      });
+                    },
+                    child: _buildCardWidget(0),
+                  ),
                 ),
+                Positioned(
+                  top: 55,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: _buildCardWidget(1),
+                  ),
+                ),
+                // Positioned(
+                //   top: 120,
+                //   child: Listener(
+                //     onPointerMove: (event) {
+                //       setState(() {
+                //         heughtt = 200 - event.localPosition.dy;
+                //       });
+                //     },
+                //     child: _buildCardWidget(
+                //       2,
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -155,17 +213,23 @@ class CardsPage extends StatelessWidget {
     );
   }
 
-  SizedBox _buildCardWidget(int num) {
-    return SizedBox(
+  AnimatedContainer _buildCardWidget(int num) {
+    return AnimatedContainer(
+      alignment: Alignment.topCenter,
+      duration: const Duration(milliseconds: 700),
       width: 400,
-      height: 200,
+      height: num == 2 ? heughtt : 200,
       child: Stack(
         children: [
           Container(
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.white, width: 6),
                 borderRadius: BorderRadius.circular(30),
-                color: num == 0 ? MyColors.darkPurple : Colors.green),
+                color: num == 0
+                    ? MyColors.darkPurple
+                    : num == 1
+                        ? Colors.green
+                        : Colors.blue),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
