@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bank/model/models.dart';
 import 'package:flutter_bank/utils/my_colors.dart';
 import 'package:flutter_bank/widgets/tabbar_widget.dart';
+
+import '../model/models.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
@@ -48,9 +48,9 @@ class _HistoryPageState extends State<HistoryPage>
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(right: 20, left: 20),
+            margin: const EdgeInsets.only(right: 20, left: 20),
             decoration: BoxDecoration(
-              border:Border.all(color: MyColors.grey),
+              border: Border.all(color: MyColors.grey),
             ),
             child: TabBar(
               controller: tabController,
@@ -71,9 +71,9 @@ class _HistoryPageState extends State<HistoryPage>
           ),
           ListView.builder(
             shrinkWrap: true,
-            itemCount: historyItems.length,
+            itemCount: getHistoryList().length,
             itemBuilder: (context, index) {
-              final historyItem = historyItems[index];
+              final historyItem = getHistoryList()[index];
               return ListTile(
                 leading: Container(
                   decoration: BoxDecoration(

@@ -4,7 +4,7 @@ import 'package:flutter_bank/utils/my_routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'cubit/app_cubit.dart';
-import 'utils/theme_config.dart';
+import 'utils/my_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final isPlatformDark =
         WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
-    final initTheme = isPlatformDark ? darkTheme : lightTheme;
+    final initTheme = !isPlatformDark ? darkTheme : lightTheme;
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       // minTextAdapt: true,

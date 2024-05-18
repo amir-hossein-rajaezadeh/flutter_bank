@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class MyColors {
   static const Color lightPurple = Color(0xFFEFEFFF);
@@ -9,4 +9,10 @@ class MyColors {
   static const Color white = Color(0xFFfafafa);
   static const Color mediumWhite = Color(0xFFe4e5f1);
   static const Color black = Color.fromARGB(0, 0, 0, 0);
+  static List<Color> colors = [
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.grey,
+  ];
 }

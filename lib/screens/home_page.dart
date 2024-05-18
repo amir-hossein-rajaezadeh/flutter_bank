@@ -1,10 +1,10 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bank/utils/theme_detector.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../model/models.dart';
 import '../utils/my_colors.dart';
-import '../utils/theme_config.dart';
+import '../utils/my_theme.dart';
+import '../utils/utils.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
               ),
-              color: ThemeDetector().isDarkModeEnabled(context)
+              color: isDarkModeEnabled(context)
                   ? MyColors.darkBlue
                   : MyColors.lightPurple),
           height: 285.h,
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                               offset: details.localPosition,
                             ),
                             child: Icon(
-                              ThemeDetector().isDarkModeEnabled(context)
+                              isDarkModeEnabled(context)
                                   ? Icons.light_mode_rounded
                                   : Icons.dark_mode,
                               color: Colors.grey.shade700,
@@ -129,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                         child: Icon(
                           Icons.remove_red_eye_outlined,
                           size: 30,
-                          color: ThemeDetector().isDarkModeEnabled(context)
+                          color: isDarkModeEnabled(context)
                               ? Colors.white
                               : Colors.black,
                         ),
@@ -138,11 +138,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: ListView.builder(
-                      itemCount: AllModels().getMenuList().length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: getMenuList().length,
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        final menuItem = AllModels().getMenuList()[index];
+                        final menuItem = getMenuList()[index];
 
                         return Padding(
                           padding: EdgeInsets.only(
@@ -188,7 +189,7 @@ class _HomePageState extends State<HomePage> {
           height: 100.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            color: ThemeDetector().isDarkModeEnabled(context)
+            color: isDarkModeEnabled(context)
                 ? MyColors.darkBlue
                 : MyColors.lightPurple,
           ),
@@ -257,9 +258,8 @@ class _HomePageState extends State<HomePage> {
                 Icon(
                   Icons.arrow_forward_ios_outlined,
                   size: 20,
-                  color: ThemeDetector().isDarkModeEnabled(context)
-                      ? Colors.white
-                      : Colors.black,
+                  color:
+                      isDarkModeEnabled(context) ? Colors.white : Colors.black,
                 ),
               ],
             ),
@@ -315,36 +315,31 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              child: const Text(
-                                "XYZ Company",
-                                style: TextStyle(fontWeight: FontWeight.w700),
-                              ),
+                            const Text(
+                              "XYZ Company",
+                              style: TextStyle(fontWeight: FontWeight.w700),
                             ),
-                            Container(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    "Recieved",
-                                    style: TextStyle(fontSize: 12),
-                                  ),
-                                  Container(
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 4),
-                                    width: 4,
-                                    height: 4,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(100),
-                                        color: Colors.grey),
-                                  ),
-                                  const Text(
-                                    "Feb 10",
-                                    style: TextStyle(fontSize: 12),
-                                  )
-                                ],
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Recieved",
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                                Container(
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 4),
+                                  width: 4,
+                                  height: 4,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(100),
+                                      color: Colors.grey),
+                                ),
+                                const Text(
+                                  "Feb 10",
+                                  style: TextStyle(fontSize: 12),
+                                )
+                              ],
                             )
                           ],
                         ),
