@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class MyColors {
   static const Color lightPurple = Color(0xFFEFEFFF);
-  static const Color darkPurple = Color(0xFF635BFF);
+  static const Color darkPurple = Color.fromARGB(255, 145, 140, 242);
+  static const Color darkBackgroundColor = Color(0xFF232323);
   static const Color grey = Color(0xFF6D6D6D);
   static const Color darkBlue = Color(0xFF07008A);
   static const Color backgroundColor = Color(0xFF152452);

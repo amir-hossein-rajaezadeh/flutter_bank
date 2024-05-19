@@ -36,6 +36,6 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
       dividerColor: Colors.transparent,
       indicatorSize: TabBarIndicatorSize.label,
     ),
-    scaffoldBackgroundColor: MyColors.backgroundColor,
+    scaffoldBackgroundColor: MyColors.darkBackgroundColor,
     iconTheme: const IconThemeData(color: MyColors.darkPurple),
     primaryColor: Colors.amber);

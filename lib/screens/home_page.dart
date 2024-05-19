@@ -91,7 +91,9 @@ class _HomePageState extends State<HomePage> {
                               isDarkModeEnabled(context)
                                   ? Icons.light_mode_rounded
                                   : Icons.dark_mode,
-                              color: Colors.grey.shade700,
+                              color: isDarkModeEnabled(context)
+                                  ? Colors.white
+                                  : MyColors.grey,
                               size: 22,
                             ),
                           );
@@ -147,9 +149,9 @@ class _HomePageState extends State<HomePage> {
 
                         return Padding(
                           padding: EdgeInsets.only(
-                              top: 16,
-                              right: 24.w,
-                              left: index == 0 ? 19.w : 0),
+                            top: 16,
+                            right: 24.w,
+                          ),
                           child: Column(
                             children: [
                               SizedBox(
@@ -161,7 +163,13 @@ class _HomePageState extends State<HomePage> {
                                     borderRadius: BorderRadius.circular(16),
                                   ),
                                   child: Center(
-                                    child: Icon(menuItem.icon),
+                                    child: Icon(
+                                      menuItem.icon,
+                                      size: 26,
+                                      color: isDarkModeEnabled(context)
+                                          ? Colors.white
+                                          : Colors.grey,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -231,22 +239,31 @@ class _HomePageState extends State<HomePage> {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           "Revval",
                           style: TextStyle(
-                              color: MyColors.darkPurple,
+                              color: isDarkModeEnabled(context)
+                                  ? Colors.white
+                                  : MyColors.grey,
                               fontWeight: FontWeight.w600),
                         ),
                         Text.rich(
                           TextSpan(
                             text: 'Invite your firends',
                             style: TextStyle(
-                                color: MyColors.darkPurple, fontSize: 12.sp),
+                                color: isDarkModeEnabled(context)
+                                    ? Colors.white
+                                    : MyColors.grey,
+                                fontSize: 12.sp),
                             children: <InlineSpan>[
                               TextSpan(
                                 text: 'to join on \n ZenWallet and get \$15.00',
                                 style: TextStyle(
-                                    fontSize: 12.sp, color: MyColors.grey),
+                                  fontSize: 12.sp,
+                                  color: isDarkModeEnabled(context)
+                                      ? Colors.white
+                                      : MyColors.grey,
+                                ),
                               )
                             ],
                           ),
@@ -272,11 +289,14 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 "Recent Trantions",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
               ),
               Text(
                 "View More",
-                style: TextStyle(fontSize: 18, color: MyColors.darkPurple),
+                style: TextStyle(
+                    fontSize: 18,
+                    color: MyColors.darkPurple,
+                    fontWeight: FontWeight.w600),
               ),
             ],
           ),
@@ -288,8 +308,10 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 0),
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
+              final TransactionModel transactionItem =
+                  getTransactionList()[index];
               return Container(
-                margin: const EdgeInsets.only(top: 18, left: 20, right: 20),
+                margin: const EdgeInsets.only(top: 18, left: 20, right: 22),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -302,10 +324,15 @@ class _HomePageState extends State<HomePage> {
                             border:
                                 Border.all(color: MyColors.grey, width: 0.5),
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(6.0),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
                             child: Center(
-                              child: Icon(Icons.arrow_upward_sharp),
+                              child: Icon(
+                                transactionItem.isSent
+                                    ? Icons.arrow_upward_sharp
+                                    : Icons.arrow_downward_rounded,
+                                size: 26,
+                              ),
                             ),
                           ),
                         ),
@@ -315,29 +342,34 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "XYZ Company",
-                              style: TextStyle(fontWeight: FontWeight.w700),
+                            Text(
+                              transactionItem.title,
+                              style: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w700),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                const Text(
-                                  "Recieved",
-                                  style: TextStyle(fontSize: 12),
+                                Text(
+                                  transactionItem.isSent ? "Sent" : "Recieved",
+                                  style: const TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 Container(
                                   margin:
                                       const EdgeInsets.symmetric(horizontal: 4),
-                                  width: 4,
-                                  height: 4,
+                                  width: 5,
+                                  height: 5,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(100),
                                       color: Colors.grey),
                                 ),
-                                const Text(
-                                  "Feb 10",
-                                  style: TextStyle(fontSize: 12),
+                                Text(
+                                  transactionItem.date,
+                                  style: const TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500),
                                 )
                               ],
                             )
@@ -346,7 +378,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     Text(
-                      "123.000 \$",
+                      "${transactionItem.price}\$",
                       style: TextStyle(
                           fontSize: 14.sp, fontWeight: FontWeight.w600),
                     )

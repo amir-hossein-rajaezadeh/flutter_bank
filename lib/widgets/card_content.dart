@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/model/models.dart';
-
 class CardContent extends StatelessWidget {
   final CardModel cardItem;
 
@@ -32,8 +31,9 @@ class CardContent extends StatelessWidget {
                   children: [
                     Image.asset(
                       cardItem.bankImage,
-                      width: 40,
-                      fit: BoxFit.cover,
+                      height: 30,
+                      fit: BoxFit.fitWidth,
+                      alignment: Alignment.topCenter,
                     ),
                     const Text(
                       "Debit Card",

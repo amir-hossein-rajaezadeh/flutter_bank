@@ -37,13 +37,31 @@ List<HistoryModel> getHistoryList() {
 
 List<CardModel> getCardList() {
   final List<CardModel> cardList = [
-    CardModel(80, 6059, "12/26", "assets/images/cimb.png", Colors.red),
-    CardModel(100, 2012, "11/19", "assets/images/mastercard.png", Colors.green),
+    CardModel(80, 6059, "12/26", "assets/images/mellat.png", Colors.red),
+    CardModel(100, 2012, "11/19", "assets/images/mastercard.png",
+        Colors.yellow.shade700),
     CardModel(20, 7923, "02/05", "assets/images/paypal.png", Colors.blue),
-    CardModel(270, 9881, "07/22", "assets/images/visa.png", Colors.grey),
+    CardModel(270, 9881, "07/22", "assets/images/visa.png",
+        const Color.fromARGB(255, 14, 3, 3)),
   ];
 
   return cardList;
+}
+
+List<TransactionModel> getTransactionList() {
+  final List<TransactionModel> transactionList = [
+    TransactionModel("Sallery", 400, "Feb 10", false),
+    TransactionModel("Jouhn", 30, "Mar 03", true),
+    TransactionModel("Mother", 120, "Apr 10", true),
+    TransactionModel("Anna", 80, "Apr 12", false),
+    TransactionModel("Brother", 50, "May 29", true),
+    TransactionModel("Jounh", 12, "Jun 02", true),
+    TransactionModel("Brother", 90, "Feb 19", true),
+    TransactionModel("Max", 70, "Feb 10", true),
+    TransactionModel("Max", 70, "Feb 10", false),
+    TransactionModel("Anna", 20, "Feb 10", false),
+  ];
+  return transactionList;
 }
 
 class MenuModel {
@@ -74,4 +92,13 @@ class CardModel {
 
   CardModel(this.accountBalance, this.lastCardNumber, this.expireDate,
       this.bankImage, this.cardColor);
+}
+
+class TransactionModel {
+  final String title;
+  final int price;
+  final String date;
+  final bool isSent;
+
+  TransactionModel(this.title, this.price, this.date, this.isSent);
 }
