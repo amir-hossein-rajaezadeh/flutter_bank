@@ -380,7 +380,7 @@ class _HomePageState extends State<HomePage> {
                     Text(
                       "${transactionItem.price}\$",
                       style: TextStyle(
-                          fontSize: 14.sp, fontWeight: FontWeight.w600),
+                          fontSize: 14.sp, fontWeight: FontWeight.w700),
                     )
                   ],
                 ),

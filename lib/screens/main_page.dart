@@ -55,7 +55,9 @@ class _MainPageState extends State<MainPage>
                       Center(
                         child: Text(
                           "Profile Screen",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
                         ),
                       )
                     ],

@@ -37,12 +37,11 @@ List<HistoryModel> getHistoryList() {
 
 List<CardModel> getCardList() {
   final List<CardModel> cardList = [
-    CardModel(80, 6059, "12/26", "assets/images/mellat.png", Colors.red),
-    CardModel(100, 2012, "11/19", "assets/images/mastercard.png",
+    CardModel("Mellat",80, 6059, "12/26", "assets/images/mellat.png", Colors.red),
+    CardModel("Master",100, 2012, "11/19", "assets/images/mastercard.png",
         Colors.yellow.shade700),
-    CardModel(20, 7923, "02/05", "assets/images/paypal.png", Colors.blue),
-    CardModel(270, 9881, "07/22", "assets/images/visa.png",
-        const Color.fromARGB(255, 14, 3, 3)),
+    CardModel("PayPal",20, 7923, "02/05", "assets/images/paypal.png", Colors.blue),
+    CardModel("Visa",270, 9881, "07/22", "assets/images/visa.png", Colors.green),
   ];
 
   return cardList;
@@ -84,13 +83,14 @@ class HistoryModel {
 }
 
 class CardModel {
+  final String bankName;
   final double accountBalance;
   final int lastCardNumber;
   final String expireDate;
   final String bankImage;
   final Color cardColor;
 
-  CardModel(this.accountBalance, this.lastCardNumber, this.expireDate,
+  CardModel(this.bankName,this.accountBalance, this.lastCardNumber, this.expireDate,
       this.bankImage, this.cardColor);
 }
 

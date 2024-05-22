@@ -17,7 +17,6 @@ class CardContent extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-                // border: Border.all(color: Colors.white, width: 6),
                 borderRadius: BorderRadius.circular(30),
                 color: cardItem.cardColor),
           ),

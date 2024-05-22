@@ -13,12 +13,17 @@ Alignment getDragStartPositionAlignment(
     return yPosition > height / 2 ? Alignment.bottomLeft : Alignment.topLeft;
   }
 }
-
 bool isDarkModeEnabled(BuildContext context) {
-  int brightness =
-      ThemeModelInheritedNotifier.of(context).theme.brightness.index;
+    int brightness =
+        ThemeModelInheritedNotifier.of(context).theme.brightness.index;
 
-  bool isDarkModeEnabled = brightness == 0;
+    bool isDarkModeEnabled = brightness == 0;
+    return isDarkModeEnabled;
 
-  return isDarkModeEnabled;
+}
+bool initThemeDetevtor(){
+   final onDarkMode =
+      WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
+
+  return onDarkMode;
 }

@@ -1,6 +1,7 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/utils/my_routes.dart';
+import 'package:flutter_bank/utils/utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'cubit/app_cubit.dart';
@@ -16,13 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isPlatformDark =
-        WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
-    final initTheme = !isPlatformDark ? darkTheme : lightTheme;
+    final initTheme = initThemeDetevtor() ? darkTheme : lightTheme;
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      // minTextAdapt: true,
-      // splitScreenMode: true,
       child: BlocProvider(
         create: (context) => AppCubit(),
         child: ThemeProvider(
