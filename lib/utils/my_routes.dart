@@ -17,11 +17,11 @@ class MyRoutes {
       ),
       GoRoute(
         path: "/paymentPage",
-        builder: (context, state) => PaymentPage(),
+        builder: (context, state) => const PaymentPage(),
       ),
       GoRoute(
         path: "/topuptPage",
-        builder: (context, state) => PaymentPage(),
+        builder: (context, state) => const PaymentPage(),
       )
     ],
   );

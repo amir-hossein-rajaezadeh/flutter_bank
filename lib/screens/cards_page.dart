@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/model/models.dart';
 import 'package:flutter_bank/utils/my_colors.dart';
-import '../widgets/card_content.dart';
-import '../widgets/cool_swiper.dart';
+import '../widgets/card/card_content.dart';
+import '../widgets/card/cool_swiper.dart';
 
 class CardsPage extends StatefulWidget {
   const CardsPage({super.key});

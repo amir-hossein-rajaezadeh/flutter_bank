@@ -2,6 +2,7 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/screens/cards_page.dart';
+import 'package:flutter_bank/screens/history_page.dart';
 import 'package:flutter_bank/screens/home_page.dart';
 import 'package:flutter_bank/screens/payment_page.dart';
 
@@ -42,8 +43,7 @@ class _MainPageState extends State<MainPage>
         body: DefaultTabController(
           initialIndex: 0,
           length: myTabs.length,
-          child: Scaffold(
-            body: Column(
+          child: Column(
               children: [
                 Expanded(
                   child: TabBarView(
@@ -52,14 +52,7 @@ class _MainPageState extends State<MainPage>
                       HomePage(),
                       CardsPage(),
                       PaymentPage(),
-                      Center(
-                        child: Text(
-                          "Profile Screen",
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      )
+                      HistoryPage()
                     ],
                   ),
                 ),
@@ -78,7 +71,7 @@ class _MainPageState extends State<MainPage>
             ),
           ),
         ),
-      ),
+    
     );
   }
 }

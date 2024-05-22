@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/model/models.dart';
 import 'package:flutter_bank/utils/my_colors.dart';
+import 'package:flutter_bank/widgets/custom_app_bar.dart';
 import 'package:flutter_bank/widgets/show_model.dart';
 
 import '../utils/utils.dart';
@@ -22,20 +23,7 @@ class _PaymentPageState extends State<PaymentPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              margin: const EdgeInsets.only(top: 60, left: 30),
-              child: const Row(
-                children: [
-                  Text(
-                    "Pay",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            buildCustomAppBarWidget("Pay"),
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
@@ -66,7 +54,7 @@ class _PaymentPageState extends State<PaymentPage> {
                                   fontSize: 22,
                                   color: Colors.black),
                             ),
-                            hintText: "amount value",
+                            hintText: "amount",
                             hintStyle: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.w600),
                             hintFadeDuration: Duration(milliseconds: 600),

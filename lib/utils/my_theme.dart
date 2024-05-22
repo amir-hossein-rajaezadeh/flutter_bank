@@ -9,11 +9,11 @@ ThemeData lightTheme = ThemeData.light().copyWith(
     ),
     labelColor: MyColors.darkPurple,
     unselectedLabelColor: Colors.grey.shade400,
-    unselectedLabelStyle: TextStyle(color: Colors.grey.shade400, fontSize: 30),
+    unselectedLabelStyle: TextStyle(color: Colors.grey.shade400, fontSize: 16),
     dividerColor: Colors.transparent,
     indicatorSize: TabBarIndicatorSize.label,
     labelStyle: const TextStyle(
-        fontSize: 12, letterSpacing: 1.3, fontWeight: FontWeight.w500),
+        fontSize: 18, letterSpacing: 1.3, fontWeight: FontWeight.w500),
   ),
   primaryColor: const Color(0xFFfafafa),
   scaffoldBackgroundColor: MyColors.white,
