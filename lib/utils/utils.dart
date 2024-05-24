@@ -1,5 +1,9 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+ final isIOS = !kIsWeb && defaultTargetPlatform == TargetPlatform.iOS;
+  final isAndroid = !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
 
 Alignment getDragStartPositionAlignment(
   double xPosition,

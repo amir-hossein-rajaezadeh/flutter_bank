@@ -70,7 +70,7 @@ class _HistoryPageState extends State<HistoryPage>
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top: 8),
+                padding: const EdgeInsets.only(top: 18),
                 child: TabBarView(
                   controller: _tabController,
                   children: [

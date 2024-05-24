@@ -34,9 +34,17 @@ class _HomePageState extends State<HomePage> {
           child: Stack(children: [
             SizedBox(
               child: Padding(
-                padding: EdgeInsets.only(top: 35.h, left: 10),
+                padding: EdgeInsets.only(
+                    top: isIOS
+                        ? 35.h
+                        : isAndroid
+                            ? 25.h
+                            : 0,
+                    left: 0),
                 child: Image.asset(
                   "assets/images/background_pic.png",
+                  height: 290.h,
+                  fit: BoxFit.fitHeight,
                   alignment: Alignment.topLeft,
                 ),
               ),
@@ -56,7 +64,9 @@ class _HomePageState extends State<HomePage> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(100),
                               image: const DecorationImage(
-                                image: AssetImage("assets/images/profile.jpeg"),
+                                image: AssetImage(
+                                  "assets/images/profile.jpeg",
+                                ),
                                 fit: BoxFit.cover,
                                 alignment: Alignment(0, -1.5),
                               ),
@@ -123,8 +133,7 @@ class _HomePageState extends State<HomePage> {
                             child: const Text(
                               "Balanced",
                               style: TextStyle(
-                                fontSize: 18,
-                              ),
+                                  fontSize: 18, fontWeight: FontWeight.w700,),
                             ),
                           ),
                           Container(

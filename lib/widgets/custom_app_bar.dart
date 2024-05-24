@@ -1,10 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../utils/utils.dart';
+
 Widget buildCustomAppBarWidget(String title) {
-  final isIOS = !kIsWeb && defaultTargetPlatform == TargetPlatform.iOS;
-  final isAndroid = !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
+ 
 
   return Container(
     margin: EdgeInsets.only(

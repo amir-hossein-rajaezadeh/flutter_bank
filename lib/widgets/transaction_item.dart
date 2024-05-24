@@ -4,7 +4,7 @@ import '../utils/my_colors.dart';
 
 Widget buildTransactionItemWidget(TransactionModel transactionItem) {
   return Container(
-    margin: const EdgeInsets.only( left: 20, right: 22),
+    margin: const EdgeInsets.only(left: 20, right: 22),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -68,7 +68,7 @@ Widget buildTransactionItemWidget(TransactionModel transactionItem) {
         ),
         Text(
           "${transactionItem.price}\$",
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
         )
       ],
     ),
