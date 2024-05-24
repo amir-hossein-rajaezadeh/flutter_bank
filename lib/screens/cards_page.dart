@@ -16,6 +16,7 @@ class _CardsPageState extends State<CardsPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
         mainAxisSize: MainAxisSize.min,
@@ -29,15 +30,15 @@ class _CardsPageState extends State<CardsPage> with TickerProviderStateMixin {
               alignment: Alignment.center,
               child: Container(
                 height: 200,
-                width: 400,
+                width: deviceWidth < 380 ? 300 : 400,
                 alignment: Alignment.topCenter,
-                margin: const EdgeInsets.only(top: 0, right: 0, left: 0),
                 child: CoolSwiper(
                   initAnimationOffset: 20,
                   children: List.generate(
                     getCardList().length,
                     (index) => CardContent(
                       cardItem: getCardList()[index],
+                      deviceWidth: deviceWidth,
                     ),
                   ),
                 ),
@@ -78,7 +79,6 @@ class _CardsPageState extends State<CardsPage> with TickerProviderStateMixin {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        fontFamily: 'Inter ',
                       ),
                     ),
                     trailing: const Icon(

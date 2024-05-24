@@ -33,12 +33,11 @@ class _PaymentPageState extends State<PaymentPage> {
                     child: Text(
                       'Enter your amount below',
                       style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w700,
-                          color: MyColors.grey),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 10.0),
                   Center(
                     child: Container(
                       alignment: Alignment.center,
@@ -67,7 +66,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 55),
+                    margin: const EdgeInsets.only(top: 60),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

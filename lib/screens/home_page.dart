@@ -29,12 +29,12 @@ class _HomePageState extends State<HomePage> {
               color: isDarkModeEnabled(context)
                   ? MyColors.darkBlue
                   : MyColors.lightPurple),
-          height: 285.h,
+          height: 290.h,
           width: double.infinity,
           child: Stack(children: [
             SizedBox(
               child: Padding(
-                padding: const EdgeInsets.only(top: 35, left: 10),
+                padding: EdgeInsets.only(top: 35.h, left: 10),
                 child: Image.asset(
                   "assets/images/background_pic.png",
                   alignment: Alignment.topLeft,
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 60, right: 20, left: 20),
+              margin: EdgeInsets.only(top: 60.h, right: 20, left: 20),
               child: Column(
                 children: [
                   Row(
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            margin: const EdgeInsets.only(left: 20, top: 20),
+                            margin: EdgeInsets.only(left: 20, top: 20.h),
                             child: const Text(
                               "Balanced",
                               style: TextStyle(
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                       Container(
-                        margin: const EdgeInsets.only(right: 24, top: 12),
+                        margin: EdgeInsets.only(right: 24, top: 12.h),
                         child: Icon(
                           Icons.remove_red_eye_outlined,
                           size: 30,
@@ -195,7 +195,7 @@ class _HomePageState extends State<HomePage> {
           ]),
         ),
         Container(
-          height: 100.h,
+          height: 110,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
             color: isDarkModeEnabled(context)
@@ -255,12 +255,12 @@ class _HomePageState extends State<HomePage> {
                                 color: isDarkModeEnabled(context)
                                     ? Colors.white
                                     : MyColors.grey,
-                                fontSize: 12.sp),
+                                fontSize: 12.spMin),
                             children: <InlineSpan>[
                               TextSpan(
                                 text: 'to join on \n ZenWallet and get \$15.00',
                                 style: TextStyle(
-                                  fontSize: 12.sp,
+                                  fontSize: 12.spMin,
                                   color: isDarkModeEnabled(context)
                                       ? Colors.white
                                       : MyColors.grey,
@@ -290,7 +290,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 "Recent Trantions",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
               Text(
                 "View More",

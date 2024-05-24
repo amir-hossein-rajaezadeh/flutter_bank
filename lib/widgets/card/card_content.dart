@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/model/models.dart';
+
 class CardContent extends StatelessWidget {
   final CardModel cardItem;
-
-  const CardContent({
-    super.key,
-    required this.cardItem,
-  });
+  final double deviceWidth;
+  const CardContent(
+      {super.key, required this.cardItem, required this.deviceWidth});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,10 @@ class CardContent extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 50, left: 30),
+                margin: EdgeInsets.only(
+                  top: 50,
+                  left: deviceWidth < 350 ? 10 : 30,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

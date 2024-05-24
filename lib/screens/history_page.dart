@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bank/widgets/custom_app_bar.dart';
-
+import 'package:flutter_bank/widgets/transaction_listview.dart';
 import '../model/models.dart';
 import '../utils/my_colors.dart';
-import '../widgets/transaction_item.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
@@ -38,11 +35,11 @@ class _HistoryPageState extends State<HistoryPage>
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: tabList.length,
-      initialIndex: 0,
-      child: Scaffold(
-        body: Column(
+    return Scaffold(
+      body: DefaultTabController(
+        length: tabList.length,
+        initialIndex: 0,
+        child: Column(
           children: [
             buildCustomAppBarWidget("History"),
             Container(
@@ -75,27 +72,16 @@ class _HistoryPageState extends State<HistoryPage>
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  ListView.builder(
-                    itemCount: getTransactionList().length,
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.only(top: 0),
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      final TransactionModel transactionItem =
-                          getTransactionList()[index];
-                      return buildTransactionItemWidget(transactionItem);
-                    },
+                  buildTransactionListView(
+                    getTransactionList()
+                        .where((element) => element.isSent)
+                        .toList(),
                   ),
-                  ListView.builder(
-                    itemCount: 2,
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.only(top: 0),
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      final TransactionModel transactionItem =
-                          getTransactionList()[index];
-                      return buildTransactionItemWidget(transactionItem);
-                    },
+                  buildTransactionListView(getTransactionList()
+                      .where((element) => !element.isSent)
+                      .toList()),
+                  buildTransactionListView(
+                    getTransactionList(),
                   ),
                 ],
               ),

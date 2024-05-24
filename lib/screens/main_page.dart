@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage>
       icon: Icon(CupertinoIcons.chart_bar_alt_fill, size: 26),
     ),
     const Tab(
-      icon: Icon(CupertinoIcons.person_circle_fill, size: 26),
+      icon: Icon(Icons.history, size: 26),
     )
   ];
 
@@ -44,34 +44,33 @@ class _MainPageState extends State<MainPage>
           initialIndex: 0,
           length: myTabs.length,
           child: Column(
-              children: [
-                Expanded(
-                  child: TabBarView(
+            children: [
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: const <Widget>[
+                    HomePage(),
+                    CardsPage(),
+                    PaymentPage(),
+                    HistoryPage()
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 70,
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 30),
+                  child: TabBar(
+                    enableFeedback: true,
+                    tabs: myTabs,
                     controller: _tabController,
-                    children: const <Widget>[
-                      HomePage(),
-                      CardsPage(),
-                      PaymentPage(),
-                      HistoryPage()
-                    ],
                   ),
                 ),
-                SizedBox(
-                  height: 70,
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 30),
-                    child: TabBar(
-                      enableFeedback: true,
-                      tabs: myTabs,
-                      controller: _tabController,
-                    ),
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
-    
+      ),
     );
   }
 }
