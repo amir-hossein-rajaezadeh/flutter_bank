@@ -63,12 +63,22 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Container(
-                            margin: const EdgeInsets.only(left: 18),
+                            margin: const EdgeInsets.only(left: 16),
                             child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Hi Amir"),
-                                Text("Wed, Fe,2024"),
+                                Text(
+                                  "Hi Amir",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                Text(
+                                  "Mon, May,2024",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500),
+                                ),
                               ],
                             ),
                           ),
@@ -94,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                                   : Icons.dark_mode,
                               color: isDarkModeEnabled(context)
                                   ? Colors.white
-                                  : MyColors.grey,
+                                  : Colors.black,
                               size: 22,
                             ),
                           );
@@ -120,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             margin: const EdgeInsets.only(left: 23),
                             child: const Text(
-                              "1,434.34",
+                              "\$1,434.34",
                               style: TextStyle(
                                   fontSize: 36, fontWeight: FontWeight.w800),
                             ),
@@ -303,16 +313,22 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Expanded(
-          child: ListView.builder(
-            itemCount: 7,
-            shrinkWrap: true,
-            padding: const EdgeInsets.only(top: 0),
-            scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) {
-              final TransactionModel transactionItem =
-                  getTransactionList()[index];
-              return buildTransactionItemWidget(transactionItem);
-            },
+          child: Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: ListView.separated(
+              itemCount: 7,
+              shrinkWrap: true,
+              padding: const EdgeInsets.only(top: 0),
+              scrollDirection: Axis.vertical,
+              itemBuilder: (context, index) {
+                final TransactionModel transactionItem =
+                    getTransactionList()[index];
+                return buildTransactionItemWidget(transactionItem);
+              },
+              separatorBuilder: (context, index) => Container(
+                height: 18,
+              ),
+            ),
           ),
         ),
       ],

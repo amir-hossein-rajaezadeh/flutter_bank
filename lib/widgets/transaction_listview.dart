@@ -3,7 +3,7 @@ import '../model/models.dart';
 import 'transaction_item.dart';
 
 ListView buildTransactionListView(List<TransactionModel> transactionList) {
-  return ListView.builder(
+  return ListView.separated(
     itemCount: transactionList.length,
     shrinkWrap: true,
     padding: const EdgeInsets.only(top: 0),
@@ -12,5 +12,8 @@ ListView buildTransactionListView(List<TransactionModel> transactionList) {
       final TransactionModel transactionItem = transactionList[index];
       return buildTransactionItemWidget(transactionItem);
     },
+    separatorBuilder: (context, index) => SizedBox(
+      height: index == 0 ? 18 : 18,
+    ),
   );
 }

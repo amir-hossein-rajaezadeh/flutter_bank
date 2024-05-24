@@ -12,11 +12,10 @@ class CardsPage extends StatefulWidget {
 }
 
 class _CardsPageState extends State<CardsPage> with TickerProviderStateMixin {
-  double heughtt = 200;
-
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
+    print("device width is $deviceWidth");
     return Scaffold(
       body: Column(
         mainAxisSize: MainAxisSize.min,
@@ -30,7 +29,7 @@ class _CardsPageState extends State<CardsPage> with TickerProviderStateMixin {
               alignment: Alignment.center,
               child: Container(
                 height: 200,
-                width: deviceWidth < 380 ? 300 : 400,
+                width: deviceWidth < 398 ? 345 : 400,
                 alignment: Alignment.topCenter,
                 child: CoolSwiper(
                   initAnimationOffset: 20,
@@ -46,7 +45,7 @@ class _CardsPageState extends State<CardsPage> with TickerProviderStateMixin {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 45, left: 20, bottom: 15),
+            margin: const EdgeInsets.only(top: 45, left: 20, bottom: 4),
             alignment: Alignment.topLeft,
             child: const Text(
               "Manage Card",
@@ -55,7 +54,6 @@ class _CardsPageState extends State<CardsPage> with TickerProviderStateMixin {
           ),
           Expanded(
             child: ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
                 padding: const EdgeInsets.only(top: 0),
                 itemBuilder: (context, index) {
                   final item = getCardOptionList()[index];

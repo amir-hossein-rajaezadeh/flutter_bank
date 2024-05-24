@@ -4,7 +4,7 @@ import '../utils/my_colors.dart';
 
 Widget buildTransactionItemWidget(TransactionModel transactionItem) {
   return Container(
-    margin: const EdgeInsets.only(top: 18, left: 20, right: 22),
+    margin: const EdgeInsets.only( left: 20, right: 22),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

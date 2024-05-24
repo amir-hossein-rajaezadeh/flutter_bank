@@ -49,9 +49,9 @@ class _PaymentPageState extends State<PaymentPage> {
                             prefix: Text(
                               "\$",
                               style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 22,
-                                  color: Colors.black),
+                                fontWeight: FontWeight.w800,
+                                fontSize: 22,
+                              ),
                             ),
                             hintText: "amount",
                             hintStyle: TextStyle(

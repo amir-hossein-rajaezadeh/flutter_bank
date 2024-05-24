@@ -1,10 +1,7 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bank/utils/my_routes.dart';
+import 'package:flutter_bank/screens/main_page.dart';
 import 'package:flutter_bank/utils/utils.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'cubit/app_cubit.dart';
 import 'utils/my_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,18 +17,15 @@ class MyApp extends StatelessWidget {
     final initTheme = initThemeDetevtor() ? darkTheme : lightTheme;
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      child: BlocProvider(
-        create: (context) => AppCubit(),
-        child: ThemeProvider(
-          initTheme: initTheme,
-          child: MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            routerConfig: MyRoutes().router,
-            title: 'Flutter Bank',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
+      child: ThemeProvider(
+        initTheme: initTheme,
+        child: MaterialApp(
+          home: const MainPage(),
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Bank',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
           ),
         ),
       ),

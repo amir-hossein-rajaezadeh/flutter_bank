@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
-import '../../model/swiper_card.dart';
+import '../../model/card_generator.dart';
 import '../../utils/constants.dart';
 import '../../utils/utils.dart';
 

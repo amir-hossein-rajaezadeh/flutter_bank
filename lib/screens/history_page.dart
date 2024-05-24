@@ -21,7 +21,7 @@ class _HistoryPageState extends State<HistoryPage>
       text: "Sent",
     ),
     const Tab(
-      text: "Recived",
+      text: "Received",
     ),
     const Tab(
       text: "Requests",
@@ -69,21 +69,24 @@ class _HistoryPageState extends State<HistoryPage>
               ),
             ),
             Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  buildTransactionListView(
-                    getTransactionList()
-                        .where((element) => element.isSent)
-                        .toList(),
-                  ),
-                  buildTransactionListView(getTransactionList()
-                      .where((element) => !element.isSent)
-                      .toList()),
-                  buildTransactionListView(
-                    getTransactionList(),
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    buildTransactionListView(
+                      getTransactionList()
+                          .where((element) => element.isSent)
+                          .toList(),
+                    ),
+                    buildTransactionListView(getTransactionList()
+                        .where((element) => !element.isSent)
+                        .toList()),
+                    buildTransactionListView(
+                      getTransactionList(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
