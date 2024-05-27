@@ -1,16 +1,29 @@
-# flutter_bank
+# flutter_bank_app
 
-A new Flutter project.
 
-## Getting Started
+WebApp(PWA) is avslieble here:
+https://amir-hossein-rajaezadeh.github.io/bank.github.io/
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The #card_swiping_animation in this project has been achieved without using any third-party librery or dart packages. Every aspect of the animation has been created manually. If you have any suggestions or improvements, a pull request is most welcome!assistant
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Open to any Contrbution✨
+
+
+
+Follow me on github
+Star it if you find it interesting⭐️
+
+
+
+## Images:  
+
+![0](docs/screenshots/img0.png) 
+![1](docs/screenshots/img1.png) 
+![2](docs/screenshots/img2.png) 
+![3](docs/screenshots/img3.png) 
+![4](docs/screenshots/img4.png) 
+![5](docs/screenshots/img4.png) 
+
+
